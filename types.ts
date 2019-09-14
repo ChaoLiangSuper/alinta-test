@@ -3,8 +3,14 @@
  */
 
 export interface Customer {
-  key: string;
+  key?: string;
   firstName: string;
   lastName: string;
-  birth: string;
+  dateOfBirth: string;
+}
+
+export interface Field {
+  label: string;
+  name: 'firstName' | 'lastName' | 'dateOfBirth';
+  type?: string;
 }
