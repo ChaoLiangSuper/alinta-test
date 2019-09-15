@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CustomerModal /> should render without error 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div
+      key="firstName"
+    >
+      <Input
+        date={false}
+        invalid={false}
+        label="First Name"
+        name="firstName"
+        onChange={[Function]}
+        value=""
+      />
+    </styled.div>
+    <styled.div
+      key="lastName"
+    >
+      <Input
+        date={false}
+        invalid={false}
+        label="Last Name"
+        name="lastName"
+        onChange={[Function]}
+        value=""
+      />
+    </styled.div>
+    <styled.div
+      key="dateOfBirth"
+    >
+      <Input
+        date={true}
+        invalid={false}
+        label="Date of Birth"
+        name="dateOfBirth"
+        onChange={[Function]}
+        value=""
+      />
+    </styled.div>
+    <styled.div
+      center={true}
+    >
+      <styled.button
+        onClick={[MockFunction]}
+      >
+        Cancel
+      </styled.button>
+      <styled.button
+        onClick={[Function]}
+        primary={true}
+      >
+        Save
+      </styled.button>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

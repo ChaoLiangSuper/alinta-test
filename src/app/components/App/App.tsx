@@ -19,7 +19,7 @@ interface AppProps {
   dispatch: Dispatch;
 }
 
-class App extends React.Component<AppProps, AppState> {
+export class App extends React.Component<AppProps, AppState> {
   state = {
     isModalOpen: false,
     selectedCustomerKey: null,

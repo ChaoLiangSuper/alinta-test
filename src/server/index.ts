@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { serverPort } from '../config';
 import router from './router';
 
-const app = express();
+export const app = express();
 
 app.use(bodyParser.json());
 

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> should render without error 1`] = `
+<styled.label>
+  <styled.input
+    autoComplete="off"
+    onChange={[Function]}
+    type="text"
+  />
+</styled.label>
+`;

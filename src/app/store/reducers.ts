@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { Action, Store } from '../../types';
 import { FETCH, ADD, DELETE, UPDATE } from './constants';
 
-const initState: Store = {
+export const initState: Store = {
   isLoading: true,
   customers: {},
 };

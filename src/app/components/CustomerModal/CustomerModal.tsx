@@ -33,7 +33,7 @@ const fields: Field[] = [
   },
 ];
 
-class CustomerModal extends React.Component<ModalProps, ModalState> {
+export class CustomerModal extends React.Component<ModalProps, ModalState> {
   state: ModalState = {
     value: this.props.initialData
       ? this.props.initialData

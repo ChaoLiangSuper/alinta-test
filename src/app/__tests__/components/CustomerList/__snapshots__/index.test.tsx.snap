@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CustomerList /> should render without error 1`] = `
+<Fragment>
+  <styled.div>
+    <styled.div>
+      <Input
+        label="Search"
+        onChange={[Function]}
+      />
+    </styled.div>
+    <styled.div
+      portion={3}
+    />
+  </styled.div>
+  <styled.div>
+    <styled.div>
+      First Name
+    </styled.div>
+    <styled.div>
+      Last Name
+    </styled.div>
+    <styled.div>
+      Date of Birth
+    </styled.div>
+    <styled.div>
+      Actions
+    </styled.div>
+  </styled.div>
+  <styled.div
+    key="111111"
+  >
+    <styled.div>
+      first
+    </styled.div>
+    <styled.div>
+      last
+    </styled.div>
+    <styled.div>
+      10/27/2018
+    </styled.div>
+    <styled.div>
+      <styled.button
+        onClick={[Function]}
+      >
+        Delete
+      </styled.button>
+      <styled.button
+        onClick={[Function]}
+        primary={true}
+      >
+        Edit
+      </styled.button>
+    </styled.div>
+  </styled.div>
+</Fragment>
+`;

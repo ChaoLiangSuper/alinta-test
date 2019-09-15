@@ -23,7 +23,7 @@ const StyledText = styled.span`
   flex-basis: 0;
 `;
 
-const StyledInput = styled.input<StyledInputProps>`
+export const StyledInput = styled.input<StyledInputProps>`
   flex-grow: 3;
   flex-basis: 0;
   width: 100%;

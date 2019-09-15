@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React from 'react';
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Store } from '../../../types';
 import Button from '../shared/Button';
@@ -18,10 +17,9 @@ interface CustomerListProps {
   customers: Store['customers'];
   selectCustomer: (key: string) => void;
   deleteCustomer: (key: string) => void;
-  dispatch: Dispatch;
 }
 
-class CustomerList extends React.Component<
+export class CustomerList extends React.Component<
   CustomerListProps,
   CustomerListState
 > {
