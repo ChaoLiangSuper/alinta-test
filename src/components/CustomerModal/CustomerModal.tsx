@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from '../shared/Button';
-import Input from './Input';
+import Input from '../shared/Input';
 import { Field, Customer, Store } from '../../../types';
 import ModalBackground from './ModalBackground';
 import Modal from './Modal';

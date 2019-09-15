@@ -5,13 +5,14 @@
 import _ from 'lodash';
 import uuid from 'uuid/v1';
 import { Customer } from '../types';
+import example_data from './data.json';
 
 interface Store {
   [key: string]: Customer;
 }
 
 class DB {
-  private dataStore: Store = {};
+  private dataStore: Store = _.keyBy(example_data, 'key');
 
   saveData = (data: Customer) => {
     const key = uuid();

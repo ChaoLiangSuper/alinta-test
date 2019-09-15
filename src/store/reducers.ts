@@ -31,6 +31,12 @@ const reducers = (state = initState, action: Action) => {
         customers,
       };
     }
+    case FETCH.ERROR:
+    case ADD.ERROR:
+    case DELETE.ERROR:
+    case UPDATE.ERROR:
+      console.log('Some errors happen with the API call, please check.');
+      return state;
     default:
       return state;
   }

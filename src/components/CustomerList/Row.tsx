@@ -7,7 +7,7 @@ const Row = styled.div`
   padding: ${({ theme }) => theme.spacing(2)};
 
   &:hover {
-    background: ${({ theme }) => theme.secondaryColor};
+    background: ${({ theme }) => theme.background};
   }
 `;
 

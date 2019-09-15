@@ -6,10 +6,10 @@ interface StyledInputProps {
 }
 
 interface InputProps extends StyledInputProps {
-  name: string;
-  label: string;
+  name?: string;
+  label?: string;
   date?: boolean;
-  value: string;
+  value?: string;
   onChange: (value: string) => void;
 }
 
@@ -41,7 +41,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <StyledLabel>
-      <StyledText>{label}</StyledText>
+      {label ? <StyledText>{label}</StyledText> : null}
       <StyledInput
         autoComplete='off'
         name={name}
