@@ -1,13 +1,21 @@
 ### This test includes both frontend and backend
 
-### To start
+### Install All Dependencies
 
 `yarn`
 
-### Start Developer Backend Server
+### Start Dev Backend Server
 
 `yarn server:start`
 
-### Start Developer FrontEnd Server
+### Start Dev FrontEnd Server
 
 `yarn app:start`
+
+### Run Test
+
+`yarn test`
+
+### Run Test with Coverage
+
+`yarn coverage`
