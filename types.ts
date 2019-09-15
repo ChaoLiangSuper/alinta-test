@@ -14,3 +14,16 @@ export interface Field {
   name: 'firstName' | 'lastName' | 'dateOfBirth';
   type?: string;
 }
+
+export interface Action {
+  type: string;
+  customers?: Customer[];
+  customer?: Customer;
+  key?: Customer['key'];
+  data?: any;
+}
+
+export interface Store {
+  customers: { [key: string]: Customer };
+  isLoading: boolean;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface StyledInputProp {
+interface StyledInputProps {
   invalid?: boolean;
 }
 
-interface InputProp extends StyledInputProp {
+interface InputProps extends StyledInputProps {
   name: string;
   label: string;
   date?: boolean;
@@ -23,7 +23,7 @@ const StyledText = styled.span`
   flex-basis: 0;
 `;
 
-const StyledInput = styled.input<StyledInputProp>`
+const StyledInput = styled.input<StyledInputProps>`
   flex-grow: 3;
   flex-basis: 0;
   width: 100%;
@@ -31,7 +31,7 @@ const StyledInput = styled.input<StyledInputProp>`
   border-radius: ${({ theme }) => theme.borderRadius()};
 `;
 
-const Input: React.FC<InputProp> = ({
+const Input: React.FC<InputProps> = ({
   name,
   label,
   date,

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface ButtonProp {
+interface ButtonProps {
   primary?: boolean;
 }
 
-const StyledButton = styled.button<ButtonProp>`
+const StyledButton = styled.button<ButtonProps>`
   border: none;
   padding: ${({ theme }) => theme.spacing()};
   border-radius: ${({ theme }) => theme.borderRadius()};

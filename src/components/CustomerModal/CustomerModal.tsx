@@ -1,9 +1,11 @@
 import _ from 'lodash';
 import React from 'react';
-import styled from 'styled-components';
-import Button from './Button';
+import Button from '../shared/Button';
 import Input from './Input';
-import { Field, Customer } from '../../types';
+import { Field, Customer } from '../../../types';
+import ModalBackground from './ModalBackground';
+import Modal from './Modal';
+import ModalRow from './ModalRow';
 
 interface ModalProps {
   isOpen: boolean;
@@ -29,40 +31,7 @@ const fields: Field[] = [
   },
 ];
 
-const ModelBackground = styled.div`
-  background: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Model = styled.div`
-  width: 30%;
-  display: flex;
-  background: white;
-  box-shadow: 0 0 20px lightgray;
-  border-radius: ${({ theme }) => theme.borderRadius(3)};
-  padding: ${({ theme }) => theme.spacing(5)};
-  flex-direction: column;
-`;
-
-const ModalRow = styled.div<{ center?: boolean }>`
-  width: 100%;
-  display: flex;
-  justify-content: ${({ center }) => (center ? 'center' : '')};
-
-  & + & {
-    margin-top: ${({ theme }) => theme.spacing()};
-  }
-`;
-
-class NewCustomerModel extends React.Component<ModalProps, ModalState> {
+class CustomerModal extends React.Component<ModalProps, ModalState> {
   state: ModalState = {
     value: {
       firstName: '',
@@ -107,8 +76,8 @@ class NewCustomerModel extends React.Component<ModalProps, ModalState> {
     const { invalidFields, value } = this.state;
 
     return isOpen ? (
-      <ModelBackground>
-        <Model>
+      <ModalBackground>
+        <Modal>
           {_.map(fields, ({ name, label, type }) => (
             <ModalRow key={name}>
               <Input
@@ -127,10 +96,10 @@ class NewCustomerModel extends React.Component<ModalProps, ModalState> {
               Save
             </Button>
           </ModalRow>
-        </Model>
-      </ModelBackground>
+        </Modal>
+      </ModalBackground>
     ) : null;
   }
 }
 
-export default NewCustomerModel;
+export default CustomerModal;
