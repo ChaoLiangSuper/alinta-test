@@ -19,17 +19,21 @@ const CustomerList: React.FC<CustomerListProps> = ({ customers }) => {
         <Cell>Date of Birth</Cell>
         <Cell>Actions</Cell>
       </Row>
-      {_.map(customers, ({ firstName, lastName, dateOfBirth, key }) => (
-        <Row key={key}>
-          <Cell>{firstName}</Cell>
-          <Cell>{lastName}</Cell>
-          <Cell>{dateOfBirth}</Cell>
-          <Cell>
-            <Button>Delete</Button>
-            <Button primary>Edit</Button>
-          </Cell>
-        </Row>
-      ))}
+      {_.isEmpty(customers) ? (
+        <Row>No Customer Founded</Row>
+      ) : (
+        _.map(customers, ({ firstName, lastName, dateOfBirth, key }) => (
+          <Row key={key}>
+            <Cell>{firstName}</Cell>
+            <Cell>{lastName}</Cell>
+            <Cell>{dateOfBirth}</Cell>
+            <Cell>
+              <Button>Delete</Button>
+              <Button primary>Edit</Button>
+            </Cell>
+          </Row>
+        ))
+      )}
     </>
   );
 };

@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import Section from './Section';
 import Button from '../shared/Button';
+import Loading from '../Loading';
 import CustomerList from '../CustomerList';
 import CustomerModel from '../CustomerModal';
 import { Customer, Store } from '../../../types';
@@ -37,7 +38,9 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
-    return (
+    return this.props.isLoading ? (
+      <Loading />
+    ) : (
       <div>
         <Section>
           <Button primary onClick={this.toggleModal}>
