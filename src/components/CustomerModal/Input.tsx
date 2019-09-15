@@ -43,6 +43,7 @@ const Input: React.FC<InputProps> = ({
     <StyledLabel>
       <StyledText>{label}</StyledText>
       <StyledInput
+        autoComplete='off'
         name={name}
         type={date ? 'date' : 'text'}
         value={value}

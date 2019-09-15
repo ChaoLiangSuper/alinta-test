@@ -1,16 +1,18 @@
 import _ from 'lodash';
 import React from 'react';
+import { connect } from 'react-redux';
 import Button from '../shared/Button';
 import Input from './Input';
-import { Field, Customer } from '../../../types';
+import { Field, Customer, Store } from '../../../types';
 import ModalBackground from './ModalBackground';
 import Modal from './Modal';
 import ModalRow from './ModalRow';
 
 interface ModalProps {
-  isOpen: boolean;
   onSave: (value: Customer) => void;
   onClose: () => void;
+  initialData?: Customer;
+  selectedCustomerKey: string | null;
 }
 
 interface ModalState {
@@ -33,11 +35,13 @@ const fields: Field[] = [
 
 class CustomerModal extends React.Component<ModalProps, ModalState> {
   state: ModalState = {
-    value: {
-      firstName: '',
-      lastName: '',
-      dateOfBirth: '',
-    },
+    value: this.props.initialData
+      ? this.props.initialData
+      : {
+          firstName: '',
+          lastName: '',
+          dateOfBirth: '',
+        },
     invalidFields: [],
   };
 
@@ -72,10 +76,10 @@ class CustomerModal extends React.Component<ModalProps, ModalState> {
   };
 
   render() {
-    const { isOpen, onClose } = this.props;
+    const { onClose } = this.props;
     const { invalidFields, value } = this.state;
 
-    return isOpen ? (
+    return (
       <ModalBackground>
         <Modal>
           {_.map(fields, ({ name, label, type }) => (
@@ -98,8 +102,15 @@ class CustomerModal extends React.Component<ModalProps, ModalState> {
           </ModalRow>
         </Modal>
       </ModalBackground>
-    ) : null;
+    );
   }
 }
 
-export default CustomerModal;
+export default connect(
+  ({ customers }: Store, { selectedCustomerKey }: ModalProps) =>
+    selectedCustomerKey
+      ? {
+          initialData: customers[selectedCustomerKey],
+        }
+      : {}
+)(CustomerModal);

@@ -7,10 +7,11 @@ import Loading from '../Loading';
 import CustomerList from '../CustomerList';
 import CustomerModel from '../CustomerModal';
 import { Customer, Store } from '../../../types';
-import { fetchAllCustomers } from '../../store/actions';
+import * as actions from '../../store/actions';
 
 interface AppState {
   isModalOpen: boolean;
+  selectedCustomerKey: string | null;
 }
 
 interface AppProps {
@@ -21,6 +22,7 @@ interface AppProps {
 class App extends React.Component<AppProps, AppState> {
   state = {
     isModalOpen: false,
+    selectedCustomerKey: null,
   };
 
   toggleModal = () => {
@@ -29,15 +31,34 @@ class App extends React.Component<AppProps, AppState> {
     }));
   };
 
-  saveNewCustomer = (newCustomer: Customer) => {
-    console.log(newCustomer);
+  saveCustomer = (customer: Customer) => {
+    if (this.state.selectedCustomerKey) {
+      this.props.dispatch(actions.updateCustomer(customer));
+      return this.setState({
+        selectedCustomerKey: null,
+      });
+    }
+    this.props.dispatch(actions.addCustomer(customer));
+  };
+
+  selectCustomer = (key: string) => {
+    this.setState({
+      selectedCustomerKey: key,
+      isModalOpen: true,
+    });
+  };
+
+  deleteCustomer = (key: string) => {
+    this.props.dispatch(actions.deleteCustomer(key));
   };
 
   componentDidMount() {
-    this.props.dispatch(fetchAllCustomers());
+    this.props.dispatch(actions.fetchAllCustomers());
   }
 
   render() {
+    const { isModalOpen, selectedCustomerKey } = this.state;
+
     return this.props.isLoading ? (
       <Loading />
     ) : (
@@ -48,13 +69,18 @@ class App extends React.Component<AppProps, AppState> {
           </Button>
         </Section>
         <Section>
-          <CustomerList />
+          <CustomerList
+            selectCustomer={this.selectCustomer}
+            deleteCustomer={this.deleteCustomer}
+          />
         </Section>
-        <CustomerModel
-          isOpen={this.state.isModalOpen}
-          onSave={this.saveNewCustomer}
-          onClose={this.toggleModal}
-        />
+        {isModalOpen ? (
+          <CustomerModel
+            onSave={this.saveCustomer}
+            onClose={this.toggleModal}
+            selectedCustomerKey={selectedCustomerKey}
+          />
+        ) : null}
       </div>
     );
   }

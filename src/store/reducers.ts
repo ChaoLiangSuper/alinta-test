@@ -24,7 +24,7 @@ const reducers = (state = initState, action: Action) => {
         },
       };
     case DELETE.SUCCESS: {
-      const customers = _.clone(state.customers);
+      const customers = { ...state.customers };
       delete customers[action.key!];
       return {
         ...state,
